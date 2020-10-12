@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, jsonify
 from netmiko import ConnectHandler
-
+from napalm import get_network_driver
 
 app = Flask(__name__)
 
@@ -11,21 +11,15 @@ def show_run(ip_address):
         username = request.form['username']
         password = request.form['password']
         enable = request.form['enable']
+        driver= get_network_driver('ios')
         device = {'ip': ip_address,
                   'username': username,
                   'password': password,
-                  'secret': enable,
-                  'device_type': 'cisco_xe'}
-        connection = ConnectHandler(**device)
-        user_mode = connection.find_prompt()
-        if '>' in user_mode:
-            connection.enable()
-        showrun = connection.send_command('show run')
-        hostname= connection.find_prompt()[:-1]
-        connection.disconnect()
-        with open(hostname +'_ShowRun.txt', 'w') as file:
-            file.write(showrun)
-        return jsonify(showrun)
+                  'optional_args': {'secret': enable}}
+        device_con= driver(device['ip'], device['username'], device['password'], optional_args=device['optional_args'])
+        device_con.open()
+        showrun= device_con.get_facts()
+        return showrun
     else:
         return render_template('login.html', network_device='Network Controller')
 
