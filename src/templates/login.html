@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+<form id="login-form" action="#" method="post">
+    <p class="container login-page-form">
+        <label for="username">Username</label>
+    <input type="text" id="username" placeholder="username" name="username" class="form-control">
+    </p>
+    <p class="container login-page-form">
+        <label for="password">Password</label>
+    <input type="password" id="password" placeholder="password" name="password" class="form-control">
+    </p>
+    <p class="container login-page-form">
+        <label for="enable">Enable</label>
+    <input type="password" id="enable" placeholder="enable" name="enable" class="form-control">
+    </p>
+    <p class="container login-page-form">
+       <!-- <button type="button" class="btn btn-success">Log In</button>-->
+    <input type="submit" id="submit-button">
+    </p>
+
+</form>
+{% endblock %}
