@@ -5,6 +5,13 @@ from napalm import get_network_driver
 app = Flask(__name__)
 
 
+
+@app.route('/', methods=['GET'])
+def get_home():
+    return jsonify({"home":"Hello Networkers"})
+
+
+
 @app.route('/get-config/<ip_address>/', methods=['GET','POST'])
 def show_run(ip_address):
     if request.method == 'POST':
@@ -141,4 +148,4 @@ def show_int_status(ip_address):
         return render_template('login.html', network_device='Network Controller')
 
 
-app.run(debug=True, port=9999)
+app.run(debug=True, port=9999, host="0.0.0.0")
