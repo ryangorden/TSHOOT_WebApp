@@ -13,8 +13,8 @@ install:
   - "pip install -r requirements.txt"
 
 befoe_script:
-  - "pylint src/*py"
-  - "pylint test/system/*py"
+ # - "pylint src/*py"
+ # - "pylint test/system/*py"
   - "python -m unittest test/sytem/test_system.py"
   - "docker-compose up -d"
   - "docker container ls"
