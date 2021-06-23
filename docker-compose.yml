@@ -1,0 +1,35 @@
+---
+# Version 3.7 for compose files corresponds with
+# Docker engine 18.06.0 and newer (per Docker docs).
+version: "3.7"
+
+# Nested dictionary of containers to create. I'm demonstrating
+# 3 tshoot_webapp apps each exposing a different public TCP port. This is
+# a "scale out" technique and you could put a load balancer in front.
+services:
+  tshoot_webapp1:
+    build: "."
+    image: "tshoot_webapp:latest"
+    ports:
+      - "5001:9999/tcp"
+    volumes:
+      - type: "bind"
+        source: "./src"
+        target: "/src"
+  tshoot_webapp2:
+    image: "tshoot_webapp:latest"
+    ports:
+      - "5002:9999/tcp"
+    volumes:
+      - type: "bind"
+        source: "./src"
+        target: "/src"
+  tshoot_webapp3:
+    image: "tshoot_webapp:latest"
+    ports:
+      - "5003:9999/tcp"
+    volumes:
+      - type: "bind"
+        source: "./src"
+        target: "/src"
+...
