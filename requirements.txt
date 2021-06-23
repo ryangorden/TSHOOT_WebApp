@@ -1,3 +1,6 @@
 netmiko
 napalm
 flask
+requests
+pytest
+pylint
