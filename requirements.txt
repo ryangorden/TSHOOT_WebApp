@@ -3,4 +3,3 @@ napalm
 flask
 requests
 pytest
-pylint
