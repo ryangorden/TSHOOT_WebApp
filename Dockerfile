@@ -7,7 +7,7 @@ EXPOSE 9999/tcp
 
 COPY ./requirements.txt /src/requirements.txt
 
-COPY ./test /
+COPY ./test /test
 WORKDIR /src
 
 RUN pip3 install -r requirements.txt
