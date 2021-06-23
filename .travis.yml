@@ -2,17 +2,22 @@ language: "python"
 dist: "bionic"
 python:
   - "3.8.5"
-  - "2.7"
+  #- "2.7"
   - "3.6"
   - "nightly"
 services:
   - "docker"
 
 
+before_install:
+  - "python3 -m venv venv"
+  - "source venv/bin/activate"
+
+
 install:
   - "pip install -r requirements.txt"
 
-befoe_script:
+before_script:
  # - "pylint src/*py"
  # - "pylint test/system/*py"
   - "python -m unittest test/sytem/test_system.py"
