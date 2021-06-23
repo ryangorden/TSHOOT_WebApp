@@ -1,7 +1,7 @@
 import sys
 from unittest import TestCase
 
-sys.path.append("/home/riyan678/TSHOOT_WebApp_docker/src")
+sys.path.append("/src")
 from app import app
 
 
