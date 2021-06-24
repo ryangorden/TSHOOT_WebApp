@@ -10,8 +10,8 @@ services:
 
 
 before_install:
-  - "python3 -m venv venv"
-  - "source venv/bin/activate"
+ # - "python3 -m venv venv"
+ # - "source venv/bin/activate"
 
 
 install:
@@ -21,6 +21,7 @@ before_script:
  # - "pylint src/*py"
  # - "pylint test/system/*py"
   - "python3 -m unittest test/sytem/test_home.py"
+  - "docker image build -t tshoot_webapp ." 
   - "docker-compose up -d"
   - "docker container ls"
 
@@ -28,5 +29,6 @@ script:
   - "python3 -m unittest test/system/test_home.py"
 
 after_script:
-  - "docker-compose down"
+  - "docker stop tshoot_webapp"
+ # - "docker-compose down"
   
