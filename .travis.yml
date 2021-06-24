@@ -20,12 +20,12 @@ install:
 before_script:
  # - "pylint src/*py"
  # - "pylint test/system/*py"
-  - "python -m unittest test/sytem/test_home.py"
+  - "python3 -m unittest test/sytem/test_home.py"
   - "docker-compose up -d"
   - "docker container ls"
 
 script:
-  - "python -m unittest test/system/test_home.py"
+  - "python3 -m unittest test/system/test_home.py"
 
 after_script:
   - "docker-compose down"
