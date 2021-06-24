@@ -16,6 +16,9 @@ services:
       - type: "bind"
         source: "./src"
         target: "/src"
+      - type: "bind"
+        source: "./test"
+        target: "/test"
   tshoot_webapp2:
     image: "tshoot_webapp:latest"
     ports:
@@ -24,6 +27,9 @@ services:
       - type: "bind"
         source: "./src"
         target: "/src"
+      - type: "bind"
+        source: "./test"
+        target: "/test"
   tshoot_webapp3:
     image: "tshoot_webapp:latest"
     ports:
@@ -32,4 +38,7 @@ services:
       - type: "bind"
         source: "./src"
         target: "/src"
+      - type: "bind"
+        source: "./test"
+        target: "/test"
 ...
