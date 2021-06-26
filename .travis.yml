@@ -28,6 +28,7 @@ before_script:
   - "docker container ls"
 
 script:
+  - "ls"
   - "python -m unittest test_home.py"
 
 after_script:
