@@ -2,7 +2,6 @@ language: "python"
 dist: "focal"
 python:
   - "3.8.5"
-  - "2.7"
   - "3.6"
   - "nightly"
 services:
@@ -23,6 +22,7 @@ before_script:
   - "python -m unittest test_home.py"
   #- "python -m unittest test/system/test_home.py"
   - "cd .."
+  - "ls"
   - "docker image build -t tshoot_webapp ." 
   - "docker-compose up -d"
   - "docker container ls"
