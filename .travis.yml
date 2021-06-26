@@ -29,6 +29,8 @@ before_script:
 
 script:
   - "ls"
+  - "cd src"
+  - "ls"
   - "python -m unittest test_home.py"
 
 after_script:
