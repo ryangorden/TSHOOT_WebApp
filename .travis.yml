@@ -1,17 +1,14 @@
 language: "python"
-dist: "bionic"
+dist: "focal"
 python:
   - "3.8.5"
-  #- "2.7"
+  - "2.7"
   - "3.6"
   - "nightly"
 services:
   - "docker"
 
 
-before_install:
- # - "python3 -m venv venv"
- # - "source venv/bin/activate"
 
 
 install:
@@ -29,6 +26,5 @@ script:
   - "python3 -m unittest test/system/test_home.py"
 
 after_script:
-  - "docker stop tshoot_webapp"
- # - "docker-compose down"
+  - "docker-compose down"
   
