@@ -19,7 +19,7 @@ before_script:
  # - "pylint src/*py"
  # - "pylint test/system/*py"
   - "ls"
-  - "python -m unittest test/sytem/test_home.py"
+  - "python -m unittest test/system/test_home.py"
   - "docker image build -t tshoot_webapp ." 
   - "docker-compose up -d"
   - "docker container ls"
