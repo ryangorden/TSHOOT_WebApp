@@ -28,7 +28,7 @@ before_script:
   - "docker container ls"
 
 script:
-  - "python -m unittest test/system/test_home.py"
+  - "python -m unittest test_home.py"
 
 after_script:
   - "docker-compose down"
