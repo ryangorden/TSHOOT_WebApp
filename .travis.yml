@@ -18,6 +18,7 @@ install:
 before_script:
  # - "pylint src/*py"
  # - "pylint test/system/*py"
+  - "ll"
   - "python -m unittest test/sytem/test_home.py"
   - "docker image build -t tshoot_webapp ." 
   - "docker-compose up -d"
