@@ -13,18 +13,18 @@ services:
 
 
 install:
-  - "pip3 install -r requirements.txt"
+  - "pip install -r requirements.txt"
 
 before_script:
  # - "pylint src/*py"
  # - "pylint test/system/*py"
-  - "python3 -m unittest test/sytem/test_home.py"
+  - "python -m unittest test/sytem/test_home.py"
   - "docker image build -t tshoot_webapp ." 
   - "docker-compose up -d"
   - "docker container ls"
 
 script:
-  - "python3 -m unittest test/system/test_home.py"
+  - "python -m unittest test/system/test_home.py"
 
 after_script:
   - "docker-compose down"
