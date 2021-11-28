@@ -9,36 +9,11 @@ version: "3.7"
 services:
   tshoot_webapp1:
     build: "."
-    image: "tshoot_webapp:latest"
     ports:
-      - "5001:9999/tcp"
-    volumes:
-      - type: "bind"
-        source: "./src"
-        target: "/src"
-      - type: "bind"
-        source: "./test"
-        target: "/test"
-  tshoot_webapp2:
-    image: "tshoot_webapp:latest"
+      - "5000:5000/tcp"
+  web:
+    build: "nginx"
     ports:
-      - "5002:9999/tcp"
-    volumes:
-      - type: "bind"
-        source: "./src"
-        target: "/src"
-      - type: "bind"
-        source: "./test"
-        target: "/test"
-  tshoot_webapp3:
-    image: "tshoot_webapp:latest"
-    ports:
-      - "5003:9999/tcp"
-    volumes:
-      - type: "bind"
-        source: "./src"
-        target: "/src"
-      - type: "bind"
-        source: "./test"
-        target: "/test"
+      - "443:443/tcp"
+
 ...

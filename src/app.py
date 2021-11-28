@@ -157,6 +157,8 @@ def show_int_status(ip_address):
 
 if __name__== "__main__":
     # Identify the certificate and key as a 2 tuple
-    # ctx= ("../ssl/cert.pem", "../ssl/key.pem")
+    # This section add ssl support to the app
+    # Uncomment the next two line to use
     ctx= ("ssl/cert.pem", "ssl/key.pem")
-    app.run(debug=True, port=9999, host="0.0.0.0",use_reloader=False, ssl_context=ctx)
+    app.run(debug=True, port = 443, host="0.0.0.0",use_reloader=False, ssl_context=ctx)
+    # app.run(debug=True, host="0.0.0.0")
